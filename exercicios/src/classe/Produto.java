@@ -8,22 +8,16 @@ public class Produto {
 	// Declaração de variáveis
 	String nome;
 	double preco;
-	double desconto;
+	static double desconto = 0.25;
 	
 	// Construtor padrão
 	Produto() {
 		
 	}
 	
-	Produto(String nomeInicial) {
-		nome = nomeInicial;
-	}
-	
-	Produto(String nomeInicial, double precoInicial, 
-			double descontoInicial) {
+	Produto(String nomeInicial, double precoInicial) {
 		nome = nomeInicial;
 		preco = precoInicial;
-		desconto = descontoInicial;
 	}
 	
 	// Método para calcular o desconto
