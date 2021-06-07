@@ -88,10 +88,20 @@ public class Campo {
 		minado = true;
 	}
 	
+	// Verifica se o espaço no campo possui uma mina explosiva
+	public boolean isMinado() {
+		return minado;
+	}
+	
 	// Métodos que verificam se há uma posição marcada no
 	// campo minado
 	public boolean isMarcado() {
 		return marcado;
+	}
+	
+	// Método que exibe todos os locais que já foram abertos
+	void setAberto(boolean aberto) {
+		this.aberto = aberto;
 	}
 	
 	public boolean isAberto() {
@@ -100,5 +110,50 @@ public class Campo {
 	
 	public boolean isFechado() {
 		return !isAberto();
+	}
+	
+	// Métodos que retornam a linha e a coluna de um determinado espaço
+	// no campo
+	public int getLinha() {
+		return linha;
+	}
+	
+	public int getColuna() {
+		return coluna;
+	}
+	
+	// Método que verifica se os objetivos do jogo 
+	// foram alcançados
+	boolean objetivoAlcancado() {
+		boolean desvendado = !minado && aberto;
+		boolean protegido = minado && marcado;
+		return desvendado || protegido;
+	}
+	
+	// Verifica se há minas explosivas ao redor
+	// das que já explodiram ou já foram identificadas
+	long minasNaVizinhanca() {
+		return vizinhos.stream().filter(v -> v.minado).count();	
+	}
+	
+	// Reinicia o jogo
+	void reiniciar() {
+		aberto = false;
+		minado = false;
+		marcado = false;
+	}
+	
+	public String toString() {
+		if (marcado) {
+			return "X";
+		} else if (aberto && minado) {
+			return "*";
+		} else if (aberto && minasNaVizinhanca() > 0) {
+			return Long.toString(minasNaVizinhanca());
+		} else if (aberto) {
+			return " ";
+		} else {
+			return "?";
+		}
 	}
 }
