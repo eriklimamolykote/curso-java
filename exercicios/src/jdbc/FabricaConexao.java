@@ -15,7 +15,7 @@ public class FabricaConexao {
 		try {
 			
 			// Acessa o banco de dados MySQL na porta 3306
-			final String url = "jdbc:mysql://localhost:3306?verifyServerCertificate=false&useSSL=true";
+			final String url = "jdbc:mysql://localhost:3306/curso_java?verifyServerCertificate=false&useSSL=true";
 			// Usuário
 			final String usuario = "erik";
 			// Senha - Necessária para estabelecer a conexão
