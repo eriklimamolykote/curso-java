@@ -3,9 +3,11 @@
 
 package jdbc;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class FabricaConexao {
 	
@@ -14,19 +16,32 @@ public class FabricaConexao {
 		// Tenta se conectar com o banco de dados
 		try {
 			
+			Properties prop = getProperties();
+			
 			// Acessa o banco de dados MySQL na porta 3306
-			final String url = "jdbc:mysql://localhost:3306/curso_java?verifyServerCertificate=false&useSSL=true";
+			final String url = prop.getProperty("banco.url");
 			// Usuário
-			final String usuario = "erik";
+			final String usuario = prop.getProperty("banco.usuario");
 			// Senha - Necessária para estabelecer a conexão
-			final String senha = "";
+			final String senha = prop.getProperty("banco.senha");
 			
 			return DriverManager.getConnection(url, usuario, senha);
 		
 			// Lança exceção caso não consiga estabelecer a 
 			// conexão com o banco de dados
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	// Método que obtém propriedades necessárias para estabelecer uma
+	// conexão com o sistema gerenciador de banco de dados
+	private static Properties getProperties() throws IOException {
+		
+		// Cria uma nova instância para carregar as propriedades
+		Properties prop = new Properties();
+		String caminho = "/conexao.properties";
+		prop.load(FabricaConexao.class.getResourceAsStream(caminho));
+		return prop;
 	}
 }
