@@ -54,4 +54,8 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public Assento getAssento(Assento assento) {
+		return assento;
+	}
 }

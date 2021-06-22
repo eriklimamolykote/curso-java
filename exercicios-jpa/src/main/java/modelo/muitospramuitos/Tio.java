@@ -1,46 +1,29 @@
 // Original author: Leonardo Moura Leitão & Cod3r Cursos
 // (C) 2019, 2021 by Cod3r Cursos. All Rights Reserved 
 
-package modelo.umpraum;
+package modelo.muitospramuitos;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.ManyToMany;
 
 @Entity
-@Table(name = "assentos")
-public class Assento {
+public class Tio {
 	
-	// Decalração de variáveis
+	// Declaração de variáveis
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome;
 	
-	@OneToOne(mappedBy = "assento")
-	private Cliente cliente;
-	
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	// Construtor padrão
-	public Assento() {
-		
-	}
-	
-	public Assento(String nome) {
-		super();
-		this.nome = nome;
-	}
+	@ManyToMany
+	private List<Sobrinho> sobrinhos = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -56,5 +39,23 @@ public class Assento {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<Sobrinho> getSobrinhos() {
+		return sobrinhos;
+	}
+
+	public void setSobrinhos(List<Sobrinho> sobrinhos) {
+		this.sobrinhos = sobrinhos;
+	}
+	
+	// Construtor padrão
+	public Tio(String nome) {
+		super();
+		this.nome = nome;
+	}
+	
+	public Tio() {
+		
 	}
 }
