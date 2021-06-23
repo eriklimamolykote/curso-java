@@ -10,6 +10,8 @@
 		
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
+		<mapping-file>META-INF/consultas.xml</mapping-file>
+		
 		<class>modelo.basico.Usuario</class>
 		<class>modelo.basico.Produto</class>
 		<class>modelo.umpraum.Assento</class>
@@ -18,6 +20,11 @@
 		<class>modelo.umpramuitos.ItemPedido</class>
 		<class>modelo.muitospramuitos.Tio</class>
 		<class>modelo.muitospramuitos.Sobrinho</class>
+		<class>modelo.muitospramuitos.Ator</class>
+		<class>modelo.muitospramuitos.Filme</class>
+		<class>modelo.composicao.Endereco</class>
+		<class>modelo.composicao.Fornecedor</class>
+		<class>modelo.composicao.Funcionario</class>
 		
 		<properties>
 		

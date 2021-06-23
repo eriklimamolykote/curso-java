@@ -1,0 +1,62 @@
+// Original author: Leonardo Moura Leitão & Cod3r Cursos
+// (C) 2019, 2021 by Cod3r Cursos. All Rights Reserved
+
+package modelo.composicao;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "fornecedores")
+public class Fornecedor {
+	
+	// Declaração de variáveis
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private String nome;
+	
+	private Endereco endereco;
+	
+	// Construtor padrão
+	public Fornecedor() {
+		
+	}
+	
+	
+
+	public Fornecedor(Long id, String nome, Endereco endereco) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+}
