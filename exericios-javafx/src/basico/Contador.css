@@ -1,0 +1,18 @@
+/* (C) 2019, 2021 by Leonardo Moura Leitão and Cod3r Cursos
+All rights reserved */
+
+.conteudo {
+	-fx-background-color: black;
+	-fx-font-family: "Oswald";
+	
+}
+
+.titulo {
+	-fx-text-fill: #48b2ee;
+	-fx-font-size: 36px;
+}
+
+.numero {
+	-fx-text-fill: #abc;
+	-fx-font-size: 28px;
+}
