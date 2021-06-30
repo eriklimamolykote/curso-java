@@ -1,4 +1,4 @@
-/* (C) 2019, 2021 by Leonardo Moura Leitão and Cod3r Cursos
+/* (C) 2019, 2021 by Leonardo Moura Leitï¿½o and Cod3r Cursos
 All rights reserved */
 
 .conteudo {
@@ -13,6 +13,23 @@ All rights reserved */
 }
 
 .numero {
-	-fx-text-fill: #abc;
+	-fx-text-fill: #eee;
 	-fx-font-size: 28px;
+}
+
+.botoes {
+	-fx-background-color: #fff;
+	-fx-text-fill: #48b2ee;
+	-fx-font-size: 28px;
+	-fx-min-width: 60px;
+	-fx-min-height: 60px;
+	-fx-background-radius: 30px;
+}
+
+.verde {
+	-fx-text-fill: #4bdb82;
+}
+
+.vermelho {
+	-fx-text-fill: #ee4139;
 }

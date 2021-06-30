@@ -1,4 +1,4 @@
-// (C) 2019, 2021 by Leonardo Moura Leitão and Cod3r Cursos
+// (C) 2019, 2021 by Leonardo Moura Leitï¿½o and Cod3r Cursos
 // All rights reserved
 
 package basico;
@@ -14,47 +14,64 @@ import javafx.stage.Stage;
 
 public class Contador extends Application {
 	
-	// Declaração de variáveis
+	// DeclaraÃ§Ã£o de variÃ¡veis
 	private int contador = 0;
+	
+	private void atualizarLabelNumero(Label label) {
+		label.setText(Integer.toString(contador));
+		
+		label.getStyleClass().remove("verde");
+		label.getStyleClass().remove("vermelho");
+		
+		if (contador > 0) {
+			label.getStyleClass().add("verde");
+		} else if (contador < 0) {
+			label.getStyleClass().add("vermelho");
+		}
+	}
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		// Cria dois rótulos
+		// Cria dois rÃ³tulos
 		Label labelTitulo = new Label("Contador");
-		// Adiciona formatação de estilo ao rótulo do título
+		// Adiciona formataÃ§Ã£o de estilo ao rÃ³tulo do tÃ­tulo
 		labelTitulo.getStyleClass().add("titulo");
 		Label labelNumero = new Label("0");
-		// Adiciona formatação de estilo ao rótulo do número
+		// Adiciona formataÃ§Ã£o de estilo ao rÃ³tulo do nÃºmero
 		labelNumero.getStyleClass().add("numero");
 		
-		// Cria os botões de decremento e de incremento
+		// Cria os botÃµes de decremento e de incremento
 		Button botaoDecremento = new Button("-");
+		// Adiciona formataÃ§Ã£o de estilo
+		botaoDecremento.getStyleClass().add("botoes");
 		botaoDecremento.setOnAction(e -> {
 			contador--;
-			labelNumero.setText(Integer.toString(contador));
+			atualizarLabelNumero(labelNumero);
 		});
 		Button botaoIncremento = new Button("+");
+		// Adiciona formataÃ§Ã£o de estilo
+		botaoIncremento.getStyleClass().add("botoes");
 		botaoIncremento.setOnAction(e -> {
 			contador++;
-			labelNumero.setText(Integer.toString(contador));
+			atualizarLabelNumero(labelNumero);
 		});
 		
 		// Cria nova caixa horizontal
 		HBox boxBotoes = new HBox();
-		// Configura o alinhamento da caixa com os botões
+		// Configura o alinhamento da caixa com os botï¿½es
 		boxBotoes.setAlignment(Pos.CENTER);
-		// Configura o espaçamento da caixa com os botões
+		// Configura o espaï¿½amento da caixa com os botï¿½es
 		boxBotoes.setSpacing(10);
 		boxBotoes.getChildren().add(botaoDecremento);
 		boxBotoes.getChildren().add(botaoIncremento);
 		
-		// Cria caixa vertical principal e adiciona os rótulos e os botões
-		// à ela
+		// Cria caixa vertical principal e adiciona os rÃ³tulos e os botÃµes
+		// Ã  ela
 		VBox boxConteudo = new VBox();
-		// Adiciona formatação de estilo à caixa vertical principal
+		// Adiciona formataÃ§Ã£o de estilo Ã  caixa vertical principal
 		boxConteudo.getStyleClass().add("conteudo");
-		// Configura o espaçamento da caixa vertical principal
+		// Configura o espaÃ§amento da caixa vertical principal
 		boxConteudo.setSpacing(10);
 		// Configura o alinhamento da caixa principal
 		boxConteudo.setAlignment(Pos.CENTER);
@@ -62,13 +79,13 @@ public class Contador extends Application {
 		boxConteudo.getChildren().add(labelNumero);
 		boxConteudo.getChildren().add(boxBotoes);
 		
-		// Busca um arquivo de formatação de estilo (CSS)
+		// Busca um arquivo de formataÃ§Ã£o de estilo (CSS)
 		String caminhoDoCss = getClass()
 				.getResource("/basico/Contador.css").toExternalForm();
 		
 		// Cria a cena
 		Scene cenaPrincipal = new Scene(boxConteudo, 400, 400);
-		// Aplica a formatação de estilo na cena
+		// Aplica a formataÃ§Ã£o de estilo na cena
 		cenaPrincipal.getStylesheets().add(caminhoDoCss);
 		// Muda o tipo da letra
 		cenaPrincipal.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald");
