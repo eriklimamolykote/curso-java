@@ -4,8 +4,11 @@
 module exerciciosfx {
 	// Requisita uso dos controles do pacote JavaFX
 	requires javafx.controls;
+	requires javafx.fxml;
+	requires org.controlsfx.controls;
 	
 	// Abre pacotes necessários para a execução de um projeto
 	opens basico;
 	opens layout;
+	opens fxml;
 }

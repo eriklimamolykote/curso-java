@@ -1,0 +1,19 @@
+/* (C) 2019, 2021 by Leonardo Moura Leit�o and Cod3r Cursos -->
+All rights reserved */
+.login {
+	-fx-background: linear-gradient(to right, rgb(20, 136, 204), rgb(43, 50, 178));
+}
+
+.login-titulo {
+	-fx-font-size: 20px;
+	-fx-text-fill: #FFF;
+}
+
+.login-form-label {
+	-fx-text-size: 16px;
+	-fx-text-fill: #FFF;
+}
+
+.login-form-botao {
+	-fx-font-size: 16px;
+}
